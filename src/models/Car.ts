@@ -1,17 +1,16 @@
 import { model as mongooseCreateModel, Schema } from 'mongoose';
-import { boolean, number, string } from 'joi';
 import { ICar } from '../interfaces/ICar';
 import MongoModel from './MongoModel';
 
 const carMongooseValidation = new Schema<ICar>({
-  model: string,
-  year: number,
-  color: string,
-  status: boolean,
-  buyValue: number,
-  doorsQty: number,
-  seatsQty: number,
-});
+  model: String,
+  year: Number,
+  color: String,
+  status: Boolean,
+  buyValue: Number,
+  doorsQty: Number,
+  seatsQty: Number,
+}, { versionKey: false });
   
 class Car extends MongoModel<ICar> {
   constructor(model = mongooseCreateModel('Car', carMongooseValidation)) {
